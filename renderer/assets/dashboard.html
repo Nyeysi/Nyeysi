@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #276630;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: 'transparent';
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .logout {
+            background-color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div>
+            <a href="#" onclick="showContent('dashboard')">Dashboard</a>
+            <a href="#" onclick="showContent('appointments')">Appointments</a>
+            <a href="#" onclick="showContent('attendance')">Attendance</a>
+            <a href="#" onclick="showContent('student-registration')">Student Registration</a>
+            <a href="#" onclick="showContent('instructor-registration')">Instructor Registration</a>
+        </div>
+        <a href="#" class="logout">Logout</a>
+    </div>
+    <div class="content" id="content">
+        <!-- Content will be displayed here -->
+    </div>
+
+    <script>
+        function showContent(section) {
+            const content = document.getElementById('content');
+            switch(section) {
+                case 'dashboard':
+                    content.innerHTML = '<h1>Make an Announcement</h1>';
+                    break;
+                case 'appointments':
+                    content.innerHTML = '<h1>History of Setting Appointments</h1>';
+                    break;
+                case 'attendance':
+                    content.innerHTML = '<h1>Attendance of Instructors</h1>';
+                    break;
+                case 'student-registration':
+                    content.innerHTML = '<h1>History of Registered Students</h1>';
+                    break;
+                case 'instructor-registration':
+                    content.innerHTML = '<h1>History of Registered Instructors</h1>';
+                    break;
+                default:
+                    content.innerHTML = '';
+            }
+        }
+    </script>
+</body>
+</html>
